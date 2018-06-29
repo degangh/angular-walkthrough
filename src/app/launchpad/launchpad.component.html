@@ -1,6 +1,17 @@
 
+
 <ul class= 'launchpad'>
-  <li *ngFor = 'let launchpad of launchpads' (click)='onSelect(launchpad)'>
+  <li *ngFor = 'let launchpad of launchpads' (click)='onSelect(launchpad)' [class.chosen] = 'launchpad === selectedPad'>
+    
     <span class='badge'>{{launchpad.id}}</span> {{launchpad.name}}
   </li>
 </ul>
+<div *ngIf = 'selectedPad'>
+<h2>{{selectedPad.name | uppercase}} Details</h2>
+<div><span>id: </span>{{selectedPad.id}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="selectedPad.name" placeholder="name">
+  </label>
+</div>
+</div>
