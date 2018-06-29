@@ -6,12 +6,4 @@
     <span class='badge'>{{launchpad.id}}</span> {{launchpad.name}}
   </li>
 </ul>
-<div *ngIf = 'selectedPad'>
-<h2>{{selectedPad.name | uppercase}} Details</h2>
-<div><span>id: </span>{{selectedPad.id}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="selectedPad.name" placeholder="name">
-  </label>
-</div>
-</div>
+<app-pad-detail [pad]="selectedPad"></app-pad-detail>
