@@ -1,0 +1,6 @@
+
+<ul class= 'launchpad'>
+  <li *ngFor = 'let launchpad of launchpads' (click)='onSelect(launchpad)'>
+    <span class='badge'>{{launchpad.id}}</span> {{launchpad.name}}
+  </li>
+</ul>
