@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Launchpad } from '../Launchpad';
-import { PADS } from '../mock-launchpads';
+import { LaunchpadService} from '../launchpad.service';
 
 @Component({
   selector: 'app-launchpad',
@@ -9,14 +9,19 @@ import { PADS } from '../mock-launchpads';
 })
 export class LaunchpadComponent implements OnInit {
 
-  constructor() { }
+  constructor(private launchpadService: LaunchpadService) { }
 
   ngOnInit() {
+    this.getPads();
   }
 
-  launchpads = PADS;
+  launchpads: Launchpad[];
 
   selectedPad: Launchpad;
+
+  getPads(): void {
+    this.launchpadService.getPads().subscribe(launchpads => this.launchpads = launchpads);
+  }
 
   onSelect(launchpad: Launchpad): void {
     this.selectedPad = launchpad;
