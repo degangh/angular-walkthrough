@@ -7,13 +7,15 @@ import { FormsModule} from '@angular/forms';
 import { PadDetailComponent } from './pad-detail/pad-detail.component';
 import { MessageComponent } from './message/message.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LaunchpadComponent,
     PadDetailComponent,
-    MessageComponent
+    MessageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
