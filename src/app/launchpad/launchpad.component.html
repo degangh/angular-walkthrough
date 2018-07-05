@@ -2,8 +2,9 @@
 
 <ul class= 'launchpad'>
   <li *ngFor = 'let launchpad of launchpads' (click)='onSelect(launchpad)' [class.chosen] = 'launchpad === selectedPad'>
-    
+    <a routerLink='/detail/{{launchpad.id}}'>  
     <span class='badge'>{{launchpad.id}}</span> {{launchpad.name}}
+    </a>
   </li>
 </ul>
-<app-pad-detail [pad]="selectedPad"></app-pad-detail>
+

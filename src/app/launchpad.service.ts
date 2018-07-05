@@ -17,4 +17,9 @@ export class LaunchpadService {
     return of(PADS);
 
   }
+
+  getPad(id: number): Observable<Launchpad>{
+    this.messageService.add(`LaunchpadService: fetch launchpad id = ${id}`);
+    return of (PADS.find(launchpad => launchpad.id === id))
+  }
 }

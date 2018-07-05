@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Launchpad } from '../launchpad';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { LaunchpadService } from '../launchpad.service';
 @Component({
   selector: 'app-pad-detail',
   templateUrl: './pad-detail.component.html',
@@ -7,11 +10,17 @@ import { Launchpad } from '../launchpad';
 })
 export class PadDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private launchpadService: LaunchpadService, private location: Location) { }
 
   ngOnInit() {
+    this.getPad();
   }
 
   @Input() pad: Launchpad
+
+  getPad(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.launchpadService.getPad(id).subscribe(launchpad => this.pad = launchpad)
+  }
 
 }

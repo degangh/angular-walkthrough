@@ -17,13 +17,8 @@ export class LaunchpadComponent implements OnInit {
 
   launchpads: Launchpad[];
 
-  selectedPad: Launchpad;
-
   getPads(): void {
     this.launchpadService.getPads().subscribe(launchpads => this.launchpads = launchpads);
   }
 
-  onSelect(launchpad: Launchpad): void {
-    this.selectedPad = launchpad;
-  }
 }
