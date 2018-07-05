@@ -23,4 +23,8 @@ export class PadDetailComponent implements OnInit {
     this.launchpadService.getPad(id).subscribe(launchpad => this.pad = launchpad)
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
 }
