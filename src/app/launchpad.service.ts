@@ -4,6 +4,11 @@ import { HttpClient, HttpHeaders}  from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { MessageService} from './message.service';
 import { catchError , map, tap } from 'rxjs/operators';
+import { Http } from '@angular/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type' : 'application/json'})
+}
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +20,7 @@ export class LaunchpadService {
     private messageService: MessageService
   ) { }
   private LaunchpadUrl = 'api/launchpads';
+
   getPads(): Observable<Launchpad[]> {
 
     this.messageService.add('Fetched data ...');
@@ -47,5 +53,12 @@ export class LaunchpadService {
   private log(message: string)
   {
     this.messageService.add('launchpad.service: ' + message)
+  }
+
+  updateLaunchpad (launchpad: Launchpad): Observable<any> {
+    return this.http.put(this.LaunchpadUrl, launchpad, httpOptions).pipe(
+      tap(_=> this.log(`update launchpad id = ${launchpad.id}`)),
+      catchError(this.handleError<any>('updateLaunchpad'))
+    )
   }
 }
