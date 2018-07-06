@@ -21,4 +21,10 @@ export class LaunchpadComponent implements OnInit {
     this.launchpadService.getPads().subscribe(launchpads => this.launchpads = launchpads);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {return}
+    this.launchpadService.addPad({ name } as Launchpad).subscribe(launchpad => {this.launchpads.push(launchpad)})
+  }
+
 }

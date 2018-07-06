@@ -61,4 +61,11 @@ export class LaunchpadService {
       catchError(this.handleError<any>('updateLaunchpad'))
     )
   }
+
+  addPad (launchpad: Launchpad): Observable<Launchpad>{
+    return this.http.post<Launchpad>(this.LaunchpadUrl, launchpad, httpOptions).pipe(
+      tap((launchpad: Launchpad)=>this.log(`add new launchpad with id = ${launchpad.id}`)),
+      catchError(this.handleError<Launchpad>(`addPad`))
+    )
+  }
 }

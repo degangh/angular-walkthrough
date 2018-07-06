@@ -1,4 +1,11 @@
-
+<div>
+  <label>
+    <input #launchpadName>
+  </label>
+  <button (click) = "add(launchpadName.value); launchpadName.value = ''">
+    Add
+  </button>
+</div>
 
 <ul class= 'launchpad'>
   <li *ngFor = 'let launchpad of launchpads' (click)='onSelect(launchpad)' [class.chosen] = 'launchpad === selectedPad'>
