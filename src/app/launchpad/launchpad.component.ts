@@ -27,4 +27,9 @@ export class LaunchpadComponent implements OnInit {
     this.launchpadService.addPad({ name } as Launchpad).subscribe(launchpad => {this.launchpads.push(launchpad)})
   }
 
+  delete(launchpad: Launchpad): void {
+    this.launchpads = this.launchpads.filter(l => l !== launchpad);
+    this.launchpadService.deletePad(launchpad).subscribe();
+  }
+
 }

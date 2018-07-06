@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { MessageService} from './message.service';
 import { catchError , map, tap } from 'rxjs/operators';
 import { Http } from '@angular/http';
+import { createChangeDetectorRef } from '@angular/core/src/view/refs';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -66,6 +67,16 @@ export class LaunchpadService {
     return this.http.post<Launchpad>(this.LaunchpadUrl, launchpad, httpOptions).pipe(
       tap((launchpad: Launchpad)=>this.log(`add new launchpad with id = ${launchpad.id}`)),
       catchError(this.handleError<Launchpad>(`addPad`))
+    )
+  }
+
+  deletePad(launchpad: Launchpad | number): Observable<Launchpad> {
+    const id = typeof launchpad === 'number' ? launchpad : launchpad.id;
+    const url = `${this.LaunchpadUrl}/${id}`;
+
+    return this.http.delete<Launchpad>(url, httpOptions).pipe(
+      tap(_=>this.log(`deleted launchpad id =${id}`)),
+      catchError(this.handleError<Launchpad>('deletePad'))
     )
   }
 }
