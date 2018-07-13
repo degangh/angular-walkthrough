@@ -41,6 +41,15 @@ export class LaunchpadService {
     )
   }
 
+  searchPads(term: string) : Observable<Launchpad[]>{
+    if (!term.trim()) return of ([]);
+
+    return this.http.get<Launchpad[]>(`${this.LaunchpadUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found launchpads matching "${term}"`)),
+      catchError(this.handleError<Launchpad[]>('searchPads', []))
+    )
+  }
+
   private handleError<T> (operation = 'operation' , result?: T){
     return (error: any): Observable<T> => {
       console.error(error);
