@@ -36,3 +36,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 4. Component Tree
 5. Directive
 6. Communication between components
+7. Decorator
