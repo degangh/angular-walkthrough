@@ -8,12 +8,12 @@
 </div>
 
 <ul class= 'launchpad'>
-  <li *ngFor = 'let launchpad of launchpads' (click)='onSelect(launchpad)' [class.chosen] = 'launchpad === selectedPad'>
+  <li *ngFor = 'let launchpad of launchpads' (click)='onSelect(launchpad)' [class.chosen] = 'launchpad === selectedPad'> <!--attribute binding []-->
     <a routerLink='/detail/{{launchpad.id}}'>  
-    <span class='badge'>{{launchpad.id}}</span> {{launchpad.name}}
+    <span class='badge'>{{launchpad.id}}</span> {{launchpad.name}} <!-- interpolation -->
     </a>
     <button class="delete" title="delete hero"
-  (click)="delete(launchpad)">x</button>
+  (click)="delete(launchpad)">x</button> <!-- event binding (event) = "function" -->
   </li>
 </ul>
 

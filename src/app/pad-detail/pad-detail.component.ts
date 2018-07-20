@@ -15,7 +15,7 @@ export class PadDetailComponent implements OnInit {
   ngOnInit() {
     this.getPad();
   }
-
+  //accept variable from parent component; type is Launchpad
   @Input() pad: Launchpad
 
   getPad(): void {

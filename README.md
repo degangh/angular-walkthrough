@@ -24,4 +24,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Key concepts:
+
+1. Agular CLI
+2. Data Binding
+⋅⋅1. Interpolation {{}} Component -> DOM
+⋅⋅2. Property Binding [] Component -> DOM
+⋅⋅3. Event Binding ()="function" DOM -> Component
+..4. Two way binding [()] DOM <-> Component
+3. Service and DI
+4. Component Tree
+5. Directive
+6. Communication between components
