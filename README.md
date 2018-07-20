@@ -28,9 +28,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 1. Agular CLI
 2. Data Binding
-⋅⋅1. Interpolation {{}} Component -> DOM
-⋅⋅2. Property Binding [] Component -> DOM
-⋅⋅3. Event Binding ()="function" DOM -> Component
+..1. Interpolation {{}} Component -> DOM
+..2. Property Binding [] Component -> DOM
+..3. Event Binding ()="function" DOM -> Component
 ..4. Two way binding [()] DOM <-> Component
 3. Service and DI
 4. Component Tree
